@@ -8,12 +8,14 @@ package ForeignLanguageSoftware;
  *
  * @author marcos
  */
-public class Italian {
+public class Italian extends AbstractLanguage{
 
-    //Method to display Spanish words (used in main method)
-    public void displayItalianWords(){
-        DisplayWords dw = new DisplayWords();
-        
-        dw.wordDisplay("./Words/Italian.txt");
+    public Italian(){
+        super("./Words/Italian.txt");
+    }
+    
+    @Override
+    public String getLanguageName(){
+        return "Italian";
     }
 }

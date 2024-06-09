@@ -32,15 +32,15 @@ public class AppController {
             switch (choice) {
                 case "1":
                     // Run method from Spanish class to display words
-                    spanish.displaySpanishWords();
+                    spanish.displayWords();
                     break;
                 case "2":
                     // Run method from Italian class to display words
-                    italian.displayItalianWords();
+                    italian.displayWords();
                     break;
                 case "3":
                     // Run method from Italian class to display words
-                    french.displayFrenchWords();
+                    french.displayWords();
                     break;
                 case "4":
                     System.out.println("\n                                    GoodBye!");

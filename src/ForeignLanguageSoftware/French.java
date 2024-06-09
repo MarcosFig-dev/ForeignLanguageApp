@@ -8,12 +8,14 @@ package ForeignLanguageSoftware;
  *
  * @author marcos
  */
-public class French {
+public class French extends AbstractLanguage{
 
-    //Method to display French words (used in main method)
-    public void displayFrenchWords(){
-        DisplayWords dw = new DisplayWords();
-        
-        dw.wordDisplay("./Words/French.txt");
+    public French(){
+        super("./Words/French.txt");
+    }
+    
+    @Override
+    public String getLanguageName(){
+        return "French";
     }
 }
