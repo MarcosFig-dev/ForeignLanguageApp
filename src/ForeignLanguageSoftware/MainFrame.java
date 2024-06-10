@@ -7,6 +7,7 @@ package ForeignLanguageSoftware;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 /**
  *
  * @author marcos
@@ -16,12 +17,14 @@ public class MainFrame extends javax.swing.JFrame {
     private int currentIndex = 0;
     private String[] currentWord;
     private String[] currentTranslation;
-    
+    private DisplayWords dw;
+
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
+        dw = new DisplayWords();
     }
 
     /**
@@ -158,14 +161,12 @@ public class MainFrame extends javax.swing.JFrame {
         // Display words based on selected language
         String selectedLanguage = (String) jComboBox1.getSelectedItem();
         jTextArea1.setText("");
-        
-        if("Select Language".equals(selectedLanguage)){
+
+        if ("Select Language".equals(selectedLanguage)) {
             jTextArea1.setText("Please select a language");
-        }
-        else{
-            DisplayWords dw = new DisplayWords();
-            
-            switch(selectedLanguage){
+        } else {
+
+            switch (selectedLanguage) {
                 case "Spanish":
                     dw.wordDisplay("./Words/Spanish.txt");
                     break;
@@ -176,14 +177,14 @@ public class MainFrame extends javax.swing.JFrame {
                     dw.wordDisplay("./Words/French.txt");
                     break;
             }
-            
-            String[] words = dw.getWords();
-            String[] translations = dw.getTranslations();
-            
-            if(words.length > 0){
-                jTextArea1.setText(words[0]);
-            }
-            else{
+
+            currentWord = dw.getWords();
+            currentTranslation = dw.getTranslations();
+            currentIndex = 0;
+
+            if (currentWord.length > 0) {
+                jTextArea1.setText(currentWord[currentIndex]);
+            } else {
                 jTextArea1.setText("No words available for chosen language");
             }
         }
@@ -196,27 +197,25 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // "I Don't Know It" button
-        if(currentTranslation != null && currentIndex < currentTranslation.length){
-            jTextArea1.setText(currentTranslation[currentIndex]);
+        if (currentTranslation != null && currentIndex < currentTranslation.length) {
+            jTextArea1.setText("The Correct Translation is: " + currentTranslation[currentIndex]);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // "I Know It" button
-        if(currentWord != null && currentIndex < currentWord.length){
+        if (currentWord != null && currentIndex < currentWord.length) {
             String translationInput = JOptionPane.showInputDialog(this, "Enter the translation:");
-            if(translationInput != null && translationInput.equalsIgnoreCase(currentTranslation[currentIndex])){
+            if (translationInput != null && translationInput.equalsIgnoreCase(currentTranslation[currentIndex])) {
                 JOptionPane.showMessageDialog(this, "Correct translation!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Incorrect \nThe correct translation is: " + currentTranslation[currentIndex]);
             }
-            else{
-                JOptionPane.showMessageDialog(this, "Incorrect \nThe correct translation is: "+ currentTranslation[currentIndex]);
-            }
-            
+
             currentIndex++;
-            if(currentIndex < currentWord.length){
+            if (currentIndex < currentWord.length) {
                 jTextArea1.setText(currentWord[currentIndex]);
-            }
-            else{
+            } else {
                 jTextArea1.setText("No more words to display");
             }
         }
