@@ -18,6 +18,7 @@ public class MainFrame extends javax.swing.JFrame {
     private String[] currentWord;
     private String[] currentTranslation;
     private DisplayWords dw;
+    private int score = 0;
 
     /**
      * Creates new form MainFrame
@@ -37,143 +38,169 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        selectLanguage = new javax.swing.JComboBox<>();
+        displayWordsButton = new javax.swing.JButton();
+        exitButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        knowIt = new javax.swing.JButton();
+        dontKnow = new javax.swing.JButton();
+        nextWord = new javax.swing.JButton();
+        scoreCounter = new javax.swing.JLabel();
+        scoreLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("Welcome To The Foreign Language Learning Software");
 
-        jComboBox1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Language", "Spanish", "Italian", "French" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        selectLanguage.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        selectLanguage.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Language", "Spanish", "Italian", "French" }));
+        selectLanguage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                selectLanguageActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Display Words");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        displayWordsButton.setBackground(new java.awt.Color(0, 0, 0));
+        displayWordsButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        displayWordsButton.setForeground(new java.awt.Color(255, 255, 255));
+        displayWordsButton.setText("Display Words");
+        displayWordsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                displayWordsButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 0, 0));
-        jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("EXIT");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        exitButton.setBackground(new java.awt.Color(255, 0, 0));
+        exitButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        exitButton.setForeground(new java.awt.Color(255, 255, 255));
+        exitButton.setText("EXIT");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                exitButtonActionPerformed(evt);
             }
         });
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Word to be displayed");
+        jTextArea1.setText("Words Will Display Here");
+        jTextArea1.setToolTipText("");
         jScrollPane1.setViewportView(jTextArea1);
 
-        jButton3.setBackground(new java.awt.Color(0, 0, 0));
-        jButton3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("I Know It");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        knowIt.setBackground(new java.awt.Color(0, 0, 0));
+        knowIt.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        knowIt.setForeground(new java.awt.Color(255, 255, 255));
+        knowIt.setText("I Know It");
+        knowIt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                knowItActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 0));
-        jButton4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("I Don't Know It");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        dontKnow.setBackground(new java.awt.Color(0, 0, 0));
+        dontKnow.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        dontKnow.setForeground(new java.awt.Color(255, 255, 255));
+        dontKnow.setText("I Don't Know It");
+        dontKnow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                dontKnowActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(0, 0, 0));
-        jButton5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Next Word");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        nextWord.setBackground(new java.awt.Color(0, 0, 0));
+        nextWord.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        nextWord.setForeground(new java.awt.Color(255, 255, 255));
+        nextWord.setText("Next Word");
+        nextWord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                nextWordActionPerformed(evt);
             }
         });
+
+        scoreCounter.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        scoreCounter.setText("0");
+
+        scoreLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        scoreLabel.setText("Score:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(selectLanguage, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(displayWordsButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(scoreLabel)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(scoreCounter)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(nextWord)
+                        .addGap(118, 118, 118))))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(exitButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton4)
-                                .addGap(32, 32, 32)
-                                .addComponent(jButton3)
-                                .addGap(32, 32, 32)
-                                .addComponent(jButton5))
-                            .addComponent(jLabel1))))
-                .addContainerGap(31, Short.MAX_VALUE))
+                                .addComponent(dontKnow)
+                                .addGap(30, 30, 30)
+                                .addComponent(knowIt)))))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(selectLanguage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(displayWordsButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(scoreLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(scoreCounter))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3)
-                    .addComponent(jButton5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(17, 17, 17))
+                    .addComponent(dontKnow)
+                    .addComponent(knowIt)
+                    .addComponent(nextWord))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(exitButton)
+                .addGap(20, 20, 20))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void selectLanguageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectLanguageActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_selectLanguageActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void displayWordsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayWordsButtonActionPerformed
         // Display words based on selected language
-        String selectedLanguage = (String) jComboBox1.getSelectedItem();
+        String selectedLanguage = (String) selectLanguage.getSelectedItem();
         jTextArea1.setText("");
 
         if ("Select Language".equals(selectedLanguage)) {
@@ -202,26 +229,29 @@ public class MainFrame extends javax.swing.JFrame {
                 jTextArea1.setText("No words available for chosen language");
             }
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_displayWordsButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // Exit application
         System.exit(0);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_exitButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void dontKnowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dontKnowActionPerformed
         // "I Don't Know It" button
         if (currentTranslation != null && currentIndex < currentTranslation.length) {
-            jTextArea1.setText("The Correct Translation is: " + currentTranslation[currentIndex]);
+            jTextArea1.setText("The Correct Translation is: " + currentTranslation[currentIndex] + "\n(click Next Word button)");
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_dontKnowActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void knowItActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_knowItActionPerformed
         // "I Know It" button
         if (currentWord != null && currentIndex < currentWord.length) {
             String translationInput = JOptionPane.showInputDialog(this, "Enter the translation:");
             if (translationInput != null && translationInput.equalsIgnoreCase(currentTranslation[currentIndex])) {
                 JOptionPane.showMessageDialog(this, "Correct translation!");
+                score++;
+                dw.incrementScore();
+                scoreCounter.setText("" + score);
             } else {
                 JOptionPane.showMessageDialog(this, "Incorrect \nThe correct translation is: " + currentTranslation[currentIndex]);
             }
@@ -231,32 +261,35 @@ public class MainFrame extends javax.swing.JFrame {
                 jTextArea1.setText(currentWord[currentIndex]);
             } else {
                 jTextArea1.setText("No more words to display");
+                dw.saveScores();
             }
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_knowItActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void nextWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextWordActionPerformed
         // "Next Word" button
         currentIndex++;
-        
-        if(currentIndex < currentWord.length){
+
+        if (currentIndex < currentWord.length) {
             jTextArea1.setText(currentWord[currentIndex]);
-        }
-        else{
+        } else {
             jTextArea1.setText("No more words to display");
+            dw.saveScores();
         }
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_nextWordActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton displayWordsButton;
+    private javax.swing.JButton dontKnow;
+    private javax.swing.JButton exitButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton knowIt;
+    private javax.swing.JButton nextWord;
+    private javax.swing.JLabel scoreCounter;
+    private javax.swing.JLabel scoreLabel;
+    private javax.swing.JComboBox<String> selectLanguage;
     // End of variables declaration//GEN-END:variables
 }

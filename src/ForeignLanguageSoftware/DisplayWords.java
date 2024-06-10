@@ -43,4 +43,12 @@ public class DisplayWords {
         return translations;
     }
 
+    public void incrementScore() {
+        writeFile.incrementScore();
+    }
+
+    public void saveScores() {
+        writeFile.writeToFile();
+    }
+
 }
