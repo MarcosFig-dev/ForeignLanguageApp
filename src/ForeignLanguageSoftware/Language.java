@@ -5,10 +5,11 @@
 package ForeignLanguageSoftware;
 
 /**
+ * Language interface for displaying words in different languages
  *
  * @author Marcos
  */
 public interface Language {
-    
+
     void displayWords();
 }

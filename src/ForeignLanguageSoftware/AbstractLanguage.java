@@ -5,20 +5,23 @@
 package ForeignLanguageSoftware;
 
 /**
+ * Abstract class implementing the Language interface. contains common
+ * functionality for all language classes
  *
  * @author Marcos
  */
-public abstract class AbstractLanguage implements Language{
+public abstract class AbstractLanguage implements Language {
+
     protected String fileName;
-    
-    public AbstractLanguage(String fileName){
+
+    public AbstractLanguage(String fileName) {
         this.fileName = fileName;
     }
-    
-    public void displayWords(){
+
+    public void displayWords() {
         DisplayWords dw = new DisplayWords();
         dw.wordDisplay(fileName);
     }
-    
+
     public abstract String getLanguageName();
 }

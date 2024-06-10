@@ -5,17 +5,19 @@
 package ForeignLanguageSoftware;
 
 /**
+ * French class extends AbstractLanguage. Initializes with the path to the
+ * French words file
  *
  * @author marcos
  */
-public class French extends AbstractLanguage{
+public class French extends AbstractLanguage {
 
-    public French(){
+    public French() {
         super("./Words/French.txt");
     }
-    
+
     @Override
-    public String getLanguageName(){
+    public String getLanguageName() {
         return "French";
     }
 }

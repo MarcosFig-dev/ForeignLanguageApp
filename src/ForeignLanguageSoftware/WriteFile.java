@@ -8,6 +8,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
+ * WriteFile class handles writing the score to a file. it increments and saves
+ * the score.
  *
  * @author marcos
  */
@@ -19,10 +21,12 @@ public class WriteFile {
         this.score = 0;
     }
 
+    // Incremenrs the score by one
     public void incrementScore() {
         this.score++;
     }
 
+    // Writes the score to a file on the user's desktop
     public void writeToFile() {
 
         String userHome = System.getProperty("user.home");

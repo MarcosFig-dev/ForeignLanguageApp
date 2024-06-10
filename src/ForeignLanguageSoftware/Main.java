@@ -4,9 +4,8 @@
  */
 package ForeignLanguageSoftware;
 
-import javax.swing.SwingUtilities;
-
 /**
+ * Main class to launch the application
  *
  * @author marcos
  */

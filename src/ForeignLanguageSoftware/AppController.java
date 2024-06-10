@@ -4,12 +4,16 @@
  * and open the template in the editor.
  */
 package ForeignLanguageSoftware;
+
 import java.util.Scanner;
+
 /**
+ * AppController class to handle the application's control flow
  *
  * @author mattia
  */
 public class AppController {
+
     public void startApp() {
         // Initialize instance of Scanner
         Scanner sc = new Scanner(System.in);
@@ -27,7 +31,7 @@ public class AppController {
             printMenu();
             // String variable to store user input
             String choice = sc.nextLine();
-            
+
             // switch statement to check user input
             switch (choice) {
                 case "1":
@@ -51,8 +55,9 @@ public class AppController {
             }
         }
     }
-    private void printMenu(){
-          System.out.println("\n                       === Language Selection Menu === \n");
+
+    private void printMenu() {
+        System.out.println("\n                       === Language Selection Menu === \n");
         System.out.println("                               1. Spanish Words");
         System.out.println("                               2. Italian Words");
         System.out.println("                               3. French Words");
@@ -60,5 +65,3 @@ public class AppController {
         System.out.print("\n                               Enter your choice: ");
     }
 }
-    
-

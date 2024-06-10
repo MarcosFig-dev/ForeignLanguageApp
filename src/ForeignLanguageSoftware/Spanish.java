@@ -5,17 +5,19 @@
 package ForeignLanguageSoftware;
 
 /**
+ * Spanish class extends AbstractLanguage. Initializes the path to the
+ * Spanish words file
  *
  * @author marcos
  */
-public class Spanish extends AbstractLanguage{
+public class Spanish extends AbstractLanguage {
 
-    public Spanish(){
+    public Spanish() {
         super("./Words/Spanish.txt");
     }
-    
+
     @Override
-    public String getLanguageName(){
+    public String getLanguageName() {
         return "Spanish";
     }
 }

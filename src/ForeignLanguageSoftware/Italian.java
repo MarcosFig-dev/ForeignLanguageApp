@@ -5,17 +5,19 @@
 package ForeignLanguageSoftware;
 
 /**
+ * Italian class extends AbstractLanguage. Initializes the path to the Italian
+ * words file
  *
  * @author marcos
  */
-public class Italian extends AbstractLanguage{
+public class Italian extends AbstractLanguage {
 
-    public Italian(){
+    public Italian() {
         super("./Words/Italian.txt");
     }
-    
+
     @Override
-    public String getLanguageName(){
+    public String getLanguageName() {
         return "Italian";
     }
 }

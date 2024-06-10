@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * ReadFile class handles reading words and their translations from a file
  *
  * @author marcos
  */
@@ -30,6 +31,7 @@ public class ReadFile {
     public ReadFile() {
     }
 
+    // Reads words and their translations from a specified file
     public void readWords(String fileName) {
         //ArrayList to store the words read from the file
         List<String> wordList = new ArrayList<>();

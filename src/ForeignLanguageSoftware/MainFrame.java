@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
+ * MainFrame class for the GUI of the application Handles user interactions and
+ * updates the UI accordingly
  *
  * @author marcos
  */

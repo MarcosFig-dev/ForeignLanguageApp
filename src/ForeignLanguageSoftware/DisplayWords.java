@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
+ * DisplayWords class to handle the display and interaction of words and
+ * translations
  *
  * @author marcos
  */
@@ -28,7 +30,7 @@ public class DisplayWords {
         writeFile = new WriteFile();
     }
 
-    //Method to display Spanish words (used in main method)
+    // Method to display words and translations from a file
     public void wordDisplay(String fileName) {
         fileReader.readWords(fileName);
         words = fileReader.getWords();
