@@ -91,4 +91,12 @@ public class DisplayWords {
         }
     }
     
+    public String[] getWords(){
+        return words;
+    }
+    
+    public String[] getTranslations(){
+        return translations;
+    }
+    
 }
