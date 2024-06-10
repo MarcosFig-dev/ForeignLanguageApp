@@ -27,6 +27,7 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        // Initialize DisplayWords object
         dw = new DisplayWords();
     }
 
@@ -201,10 +202,11 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_selectLanguageActionPerformed
 
     private void displayWordsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayWordsButtonActionPerformed
-        // Display words based on selected language
+        // Method to display words based on selected language
         String selectedLanguage = (String) selectLanguage.getSelectedItem();
         jTextArea1.setText("");
-
+        
+        // If-statement to verify language selection 
         if ("Select Language".equals(selectedLanguage)) {
             jTextArea1.setText("Please select a language");
         } else {
@@ -246,6 +248,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_dontKnowActionPerformed
 
     private void knowItActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_knowItActionPerformed
+         //OpenAI. (2024). Code for "I Know It" button. Retrieved from OpenAI
         // "I Know It" button
         if (currentWord != null && currentIndex < currentWord.length) {
             String translationInput = JOptionPane.showInputDialog(this, "Enter the translation:");
